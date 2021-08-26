@@ -1,0 +1,7 @@
+create view vw_all as
+select 1 as vid,a.*
+from vw_proffer a
+union 
+select 2 as vid,b.*
+from vw_complaint b
+order by date desc,time desc

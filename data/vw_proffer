@@ -1,0 +1,9 @@
+create view vw_proffer as
+select a.*,b.name_p,b.email,b.remote_addr,c.tab_nom,c.unit_1,c.unit_2,
+c.main_unit,c.post,b.tel as tel_mob,c.tel as tel_in,c.tel_town,
+c.email as email_spr,c.email_group,d.status as item_status
+from proffer a
+left join person b on a.id_person = b.id_person 
+left join phone_new.vw_phone c on b.r_tel = c.tel_mob and b.name_p<>'Анонім'
+left join spr_status d on a.status=d.id
+
